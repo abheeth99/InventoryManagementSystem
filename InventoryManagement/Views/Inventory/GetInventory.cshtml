@@ -1,0 +1,27 @@
+﻿
+
+@model InventoryManagement.Models.InventoriesViewModel
+
+@{
+    ViewBag.Title = "GetInventory";
+}
+
+<h2>GetInventory</h2>
+
+@foreach (var inventory in Model.Inventories)
+{
+    <p>@inventory.name</p>
+    @Html.ActionLink("View more details", "GetInventoryById", new { id = inventory.Id })
+
+    <br />
+    @Html.ActionLink("Delete inventory", "DeleteInventoryById", new { id = inventory.Id })
+
+    <br />
+    @Html.ActionLink("Edit inventory", "UpdateInventory", new { id = inventory.Id })
+    <hr />
+}
+
+<h4>
+    @Html.ActionLink("Create inventory", "CreateInventory")
+</h4>
+

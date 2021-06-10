@@ -1,0 +1,50 @@
+﻿@model InventoryManagement.Models.Inventory
+@using System.Web.Mvc.Html;
+
+@{
+    ViewBag.Title = "UpdateInventory";
+}
+
+<h2>UpdateInventory</h2>
+
+<fieldset>
+    <legend>Inventory</legend>
+    @using (Html.BeginForm())
+    {
+        <div>
+            <div>Name</div>
+            <div>
+                @Html.TextBoxFor(model => model.name)
+                @Html.ValidationMessage("Enter name")
+            </div>
+            <br />
+            <div>Number of units</div>
+            <div>
+                @Html.TextBoxFor(model => model.noUnits)
+                @Html.ValidationMessage("Enter Units")
+            </div>
+            <br />
+            <div>Price</div>
+            <div>
+                @Html.TextBoxFor(model => model.price)
+                @Html.ValidationMessage("Enter Price")
+            </div>
+            <br />
+            <div>Order Level</div>
+            <div>
+                @Html.TextBoxFor(model => model.orderLevel)
+                @Html.ValidationMessage("Enter Order Level")
+            </div>
+            <br />
+
+            <div>
+                <button>Update Product</button>
+            </div>
+        </div>
+    }
+</fieldset>
+
+<br/>
+<div>
+    @Html.ActionLink("Back to List", "GetInventory")
+</div>
