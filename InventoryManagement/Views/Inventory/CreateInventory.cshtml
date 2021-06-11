@@ -14,26 +14,24 @@
         <div>
             <div>Name</div>
             <div>
-                @Html.TextBoxFor(model => model.name)
-                @Html.ValidationMessage("Enter name")
+                @Html.TextBoxFor(model => model.Name)
+                @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
             </div>
             <br />
             <div>Number of units</div>
             <div>
-                @Html.TextBoxFor(model => model.noUnits)
-                @Html.ValidationMessage("Enter Units")
+                @Html.TextBoxFor(model => model.NoUnits)
             </div>
             <br />
             <div>Price</div>
             <div>
-                @Html.TextBoxFor(model => model.price)
-                @Html.ValidationMessage("Enter Price")
+                @Html.TextBoxFor(model => model.Price)
             </div>
             <br />
             <div>Order Level</div>
             <div>
-                @Html.TextBoxFor(model => model.orderLevel)
-                @Html.ValidationMessage("Enter Order Level")
+                @Html.TextBoxFor(model => model.OrderLevel)
+                @Html.ValidationMessageFor(m => m.OrderLevel, "", new { @class = "text-danger" })
             </div>
             <br />
 

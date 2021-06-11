@@ -10,7 +10,7 @@
 
 @foreach (var inventory in Model.Inventories)
 {
-    <p>@inventory.name</p>
+    <p>@inventory.Name</p>
     @Html.ActionLink("View more details", "GetInventoryById", new { id = inventory.Id })
 
     <br />

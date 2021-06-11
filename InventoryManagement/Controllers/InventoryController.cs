@@ -64,10 +64,17 @@ namespace InventoryManagement.Controllers
         [HttpPost]
         public ActionResult UpdateInventory(Inventory inventory)
         {
-            var inventoryToUpdate = db.Inventories.Find(inventory.Id);
-            TryUpdateModel(inventoryToUpdate);
-            db.SaveChanges();
-            return RedirectToAction("GetInventory", "Inventory");
+            if (ModelState.IsValid)
+            { 
+                var inventoryToUpdate = db.Inventories.Find(inventory.Id);
+                TryUpdateModel(inventoryToUpdate);
+                db.SaveChanges();
+                return RedirectToAction("GetInventory", "Inventory");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         public ActionResult CreateInventory()
@@ -78,10 +85,16 @@ namespace InventoryManagement.Controllers
         [HttpPost]
         public ActionResult CreateInventory(Inventory inventory)
         {
-
+            if (ModelState.IsValid)
+            {
             db.Inventories.Add(inventory);
             db.SaveChanges();
             return RedirectToAction("GetInventory", "Inventory");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         public ActionResult Error()
